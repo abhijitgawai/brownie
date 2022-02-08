@@ -12,12 +12,13 @@ def deploy_simple_storage():
     # Transaction            // brownie smart enough to understand this is transaction
     # Call
 
-    
-
     stored_value = simple_storage.retrieve()      # this is reading only (view function)
-
     print(stored_value )
 
+    transaction = simple_storage.store(15, {"from":account} )    # Here we are updating state in blockchain
+    transaction.wait(1)                                          # How many blocks we want to 
+    updated_stored_value = simple_storage.retrieve() 
+    print(updated_stored_value)
 
 
 def main():
