@@ -1,7 +1,10 @@
-from brownie import accounts, SimpleStorage
+from brownie import accounts, SimpleStorage, config, network
 
 def deploy_simple_storage():
-    account = accounts[0]
+    # account = accounts[0]                         # For Development server/network
+    account = get_account()                         # For real Network
+
+
     # print(account)
     # account = accounts.load("abhijit_account")
     # print(account)
@@ -20,6 +23,12 @@ def deploy_simple_storage():
     updated_stored_value = simple_storage.retrieve() 
     print(updated_stored_value)
 
+
+def get_account():
+    if network.show_active() == "development":                              # Devlopment enviormnet will use ganache accounts
+        return accounts[0]
+    else:
+        return accounts.add(config["wallets"]["from_key"])                  # For real networks we will use our real wallet (test wallet)
 
 def main():
     deploy_simple_storage()
