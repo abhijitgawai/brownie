@@ -1,0 +1,13 @@
+brownie test                              -       tests out /test files
+
+brownie test -s                           -       few extra details
+
+brownie test -k test_updating_storage     -       Tests only specific function
+
+brownie test --pdb                        -       debugger
+
+brownie networks list                     -       lists default available networks
+
+
+
+pytest is similar to browine test
