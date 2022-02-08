@@ -11,7 +11,12 @@ def deploy_simple_storage():
     simple_storage = SimpleStorage.deploy({"from":account})
     # Transaction            // brownie smart enough to understand this is transaction
     # Call
-    print(simple_storage    )
+
+    
+
+    stored_value = simple_storage.retrieve()      # this is reading only (view function)
+
+    print(stored_value )
 
 
 
