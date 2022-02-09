@@ -7,6 +7,8 @@ brownie test -k test_updating_storage     -       Tests only specific function
 brownie test --pdb                        -       debugger
 
 brownie networks list                     -       lists default available networks
+ 
+brownie networks add Ethereum ganache-local host=http://0.0.0.8545 chainid=1337      - adding networks
 
 
 
